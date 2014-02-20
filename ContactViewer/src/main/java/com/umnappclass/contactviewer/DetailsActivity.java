@@ -24,6 +24,7 @@ public class DetailsActivity extends Activity {
                 finish();
             }
         });
+        
 
 
         Button editContactButton = (Button)findViewById(R.id.edit_contact);
