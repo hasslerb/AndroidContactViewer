@@ -1,182 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-        <Button
-            android:id="@+id/go_to_details"
+            <Button
+                android:id="@+id/go_to_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:padding="16dp"
+                android:layout_margin="10dp"
+                android:text="Cancel" />
+
+            <Button
+                android:id="@+id/edit_save_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:padding="16dp"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:text="Save" />
+
+        </RelativeLayout>
+
+        <ImageButton android:id="@+id/edit_photo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:padding="16dp"
+            android:layout_height="125dp"
+            android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:text="Cancel" />
+            android:src="@drawable/ic_launcher"/>
 
-        <Button
-            android:id="@+id/edit_save_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:padding="16dp"
-            android:layout_margin="10dp"
-            android:layout_alignParentRight="true"
-            android:text="Save" />
-
-    </RelativeLayout>
-
-    <ImageButton android:id="@+id/edit_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:src="@drawable/ic_launcher"/>
-
-    <TextView android:id="@+id/edit_change_photo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Tap to change photo"/>
-
-
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/edit_table"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <!-- Title -->
-        <TableRow
-            android:id="@+id/edit_title_table_row"
+        <TextView android:id="@+id/edit_change_photo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp" >
+            android:gravity="center"
+            android:text="Tap to change photo"/>
 
-            <ImageView
-                android:id="@+id/edit_title_image"
-                android:padding="4dp" />
 
-            <TextView
-                android:id="@+id/edit_title_header"
-                android:text="Title:"
-                android:padding="4dp"
-                android:layout_marginRight="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <Spinner
-                android:id="@+id/edit_title"
-                android:entries="@array/contact_title_array"/>
-
-       </TableRow>
-
-        <!-- Name -->
-        <TableRow
-            android:id="@+id/edit_name_table_row"
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/edit_table"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+            android:layout_height="wrap_content" >
 
-            <ImageView
-                android:id="@+id/edit_name_image"
-                android:padding="4dp" />
+            <!-- Title -->
+            <TableRow
+                android:id="@+id/edit_title_table_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/edit_name_header"
-                android:text="Name:"
-                android:padding="4dp"
-                android:layout_marginRight="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                <ImageView
+                    android:id="@+id/edit_title_image"
+                    android:padding="4dp" />
 
-            <EditText
-                android:id="@+id/edit_name"
-                android:text="Jerad Phelps"
-                android:padding="4dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/edit_title_header"
+                    android:text="Title:"
+                    android:padding="4dp"
+                    android:layout_marginRight="10dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
+                <Spinner
+                    android:id="@+id/edit_title"
+                    android:entries="@array/contact_title_array"/>
 
-        <!-- Phone -->
-        <TableRow
-            android:id="@+id/edit_phone_table_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+           </TableRow>
 
-            <ImageView
-                android:id="@+id/edit_phone_image"
-                android:padding="4dp" />
+            <!-- Name -->
+            <TableRow
+                android:id="@+id/edit_name_table_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <TextView
-                android:id="@+id/edit_phone_header"
-                android:text="Phone:"
-                android:padding="4dp"
-                android:layout_marginRight="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                <ImageView
+                    android:id="@+id/edit_name_image"
+                    android:padding="4dp" />
 
-            <EditText
-                android:id="@+id/edit_phone"
-                android:text="612-123-4567"
-                android:padding="4dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/edit_name_header"
+                    android:text="Name:"
+                    android:padding="4dp"
+                    android:layout_marginRight="10dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-
-        <!-- Email -->
-        <TableRow
-            android:id="@+id/edit_email_table_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
-
-            <ImageView
-                android:id="@+id/edit_email_image"
-                android:padding="4dp" />
-
-            <TextView
-                android:id="@+id/edit_email_header"
-                android:text="Email:"
-                android:padding="4dp"
-                android:layout_marginRight="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <EditText
-                android:id="@+id/edit_email"
-                android:text="jphelps@hotmail.com"
-                android:padding="4dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </TableRow>
+                <EditText
+                    android:id="@+id/edit_name"
+                    android:text="Jerad Phelps"
+                    android:padding="4dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
 
 
-        <!-- Twitter -->
-        <TableRow
-            android:id="@+id/edit_twitter_table_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp" >
+            <!-- Phone -->
+            <TableRow
+                android:id="@+id/edit_phone_table_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
 
-            <ImageView
-                android:id="@+id/edit_twitter_image"
-                android:padding="4dp" />
+                <ImageView
+                    android:id="@+id/edit_phone_image"
+                    android:padding="4dp" />
 
-            <TextView
-                android:id="@+id/edit_twitter_header"
-                android:text="Twitter:"
-                android:padding="4dp"
-                android:layout_marginRight="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/edit_phone_header"
+                    android:text="Phone:"
+                    android:padding="4dp"
+                    android:layout_marginRight="10dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <EditText
-                android:id="@+id/edit_twitter"
-                android:text="\@jphelps"
-                android:padding="4dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </TableRow>
-
-    </TableLayout>
+                <EditText
+                    android:id="@+id/edit_phone"
+                    android:text="612-123-4567"
+                    android:padding="4dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
 
 
-</LinearLayout>
+            <!-- Email -->
+            <TableRow
+                android:id="@+id/edit_email_table_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
+
+                <ImageView
+                    android:id="@+id/edit_email_image"
+                    android:padding="4dp" />
+
+                <TextView
+                    android:id="@+id/edit_email_header"
+                    android:text="Email:"
+                    android:padding="4dp"
+                    android:layout_marginRight="10dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <EditText
+                    android:id="@+id/edit_email"
+                    android:text="jphelps@hotmail.com"
+                    android:padding="4dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
+
+
+            <!-- Twitter -->
+            <TableRow
+                android:id="@+id/edit_twitter_table_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp" >
+
+                <ImageView
+                    android:id="@+id/edit_twitter_image"
+                    android:padding="4dp" />
+
+                <TextView
+                    android:id="@+id/edit_twitter_header"
+                    android:text="Twitter:"
+                    android:padding="4dp"
+                    android:layout_marginRight="10dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <EditText
+                    android:id="@+id/edit_twitter"
+                    android:text="\@jphelps"
+                    android:padding="4dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</ScrollView>
