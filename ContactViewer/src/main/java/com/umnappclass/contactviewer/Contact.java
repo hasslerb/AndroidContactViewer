@@ -1,9 +1,11 @@
 package com.umnappclass.contactviewer;
 
+import java.io.Serializable;
+
 /**
  *
  */
-public class Contact {
+public class Contact implements Serializable {
     String name;
     String title;
     String phone;

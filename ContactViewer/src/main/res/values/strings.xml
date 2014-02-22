@@ -8,11 +8,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string-array name="contact_title_array">
+        <item></item>
         <item>Mr</item>
         <item>Mrs</item>
         <item>Ms</item>
         <item>Dr</item>
-        <item>Captian</item>
+        <item>Captain</item>
         <item>Sir</item>
     </string-array>
 

@@ -13,10 +13,17 @@ import android.widget.TextView;
  */
 public class DetailsActivity extends Activity {
 
+    private Contact _contact;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail);
+
+        Intent i = getIntent();
+        _contact = (Contact)i.getSerializableExtra("Contact");
+
+        SetContactFields(_contact);
 
         // After pressing the button to go back to contacts,
         // destroy the activity in order to return to the contacts list
@@ -34,6 +41,7 @@ public class DetailsActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DetailsActivity.this, EditDetailsActivity.class);
+                intent.putExtra("Contact", _contact);
                 startActivity(intent);
             }
         });
@@ -83,7 +91,23 @@ public class DetailsActivity extends Activity {
         });
     }
 
+    private void SetContactFields(Contact contact)
+    {
+        TextView titleView = (TextView)findViewById(R.id.details_title);
+        titleView.setText(contact.title);
 
+        TextView nameView = (TextView)findViewById(R.id.details_name);
+        nameView.setText(contact.name);
+
+        TextView phoneView = (TextView)findViewById(R.id.details_phone);
+        phoneView.setText(contact.phone);
+
+        TextView emailView = (TextView)findViewById(R.id.details_email);
+        emailView.setText(contact.email);
+
+        TextView twitterView = (TextView)findViewById(R.id.details_twitter);
+        twitterView.setText(contact.twitterId);
+    }
 
 
 }

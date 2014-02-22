@@ -36,6 +36,7 @@ public class MainActivity extends ListActivity {
         Contact contact = ((ContactAdapter)l.getAdapter()).getItem(position);
 
         Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra("Contact", contact);
         startActivity(intent);
     }
 
