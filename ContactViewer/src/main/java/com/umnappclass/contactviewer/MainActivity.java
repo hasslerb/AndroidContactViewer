@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,16 @@ public class MainActivity extends ListActivity {
         ContactRepository repo = new ContactRepository(this);
 
         setListAdapter(new ContactAdapter(this, R.layout.contact_item, repo.getContacts()));
+
+        // Go to the edit contact screen after the pressing Edit
+        Button newContactButton = (Button)findViewById(R.id.new_contact_button);
+        newContactButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, EditDetailsActivity.class);
+                intent.putExtra("Contact", new Contact(null,"","","","",""));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

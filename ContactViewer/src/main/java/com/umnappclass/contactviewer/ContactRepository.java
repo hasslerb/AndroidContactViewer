@@ -78,8 +78,19 @@ public class ContactRepository {
     }
 
     private void insertContact(Contact contact) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        // TODO: insert contact
+        ContentValues values = new ContentValues();
+
+        values.put( "name", contact.name );
+        values.put( "title", contact.title );
+        values.put( "phone", contact.phone );
+        values.put( "twitterId", contact.twitterId );
+        values.put( "email", contact.email );
+
+        db.insert( "Contact", null, values );
+
+        db.close();
 
     }
 
