@@ -15,13 +15,24 @@ public class DetailsActivity extends Activity {
 
     private Contact _contact;
 
+    private ContactRepository repo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         Intent i = getIntent();
-        _contact = (Contact)i.getSerializableExtra("Contact");
+        Integer contactId = (Integer) i.getSerializableExtra("contactId");
+
+        repo = new ContactRepository(this);
+
+        _contact = repo.getContactById( contactId );
 
         SetContactFields(_contact);
 

@@ -19,14 +19,23 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class MainActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+    }
 
-        setListAdapter(new ContactAdapter(this, R.layout.contact_item, Contact.dummies()));
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        ContactRepository repo = new ContactRepository(this);
+
+        setListAdapter(new ContactAdapter(this, R.layout.contact_item, repo.getContacts()));
     }
 
     @Override
@@ -36,13 +45,13 @@ public class MainActivity extends ListActivity {
         Contact contact = ((ContactAdapter)l.getAdapter()).getItem(position);
 
         Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra("Contact", contact);
+        intent.putExtra("contactId", contact.id);
         startActivity(intent);
     }
 
     class ContactAdapter extends ArrayAdapter<Contact> {
 
-        public ContactAdapter(Context context, int resource, Contact[] objects) {
+        public ContactAdapter(Context context, int resource, List<Contact> objects) {
             super(context, resource, objects);
         }
 

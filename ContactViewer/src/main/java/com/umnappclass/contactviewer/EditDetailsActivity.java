@@ -28,6 +28,8 @@ public class EditDetailsActivity extends Activity {
     Bitmap photo;
     private Contact _contact;
 
+    private ContactRepository repo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +40,25 @@ public class EditDetailsActivity extends Activity {
 
         SetContactFields(_contact);
 
+        repo = new ContactRepository(this);
+
         Button goToDetailsButton = (Button)findViewById(R.id.go_to_details);
         goToDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
+            }
+        });
+
+        Button saveButton = (Button) findViewById( R.id.edit_save_details );
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Contact c = getContactFromFields(_contact);
+
+                repo.saveContact( c );
+
                 finish();
             }
         });
@@ -140,5 +157,21 @@ public class EditDetailsActivity extends Activity {
 
         EditText twitterView = (EditText)findViewById(R.id.edit_twitter);
         twitterView.setText(contact.twitterId);
+    }
+
+    private Contact getContactFromFields(Contact c) {
+
+        c.name = ((EditText)findViewById(R.id.edit_name)).getText().toString();
+
+        c.title = ((Spinner)findViewById(R.id.edit_title)).getSelectedItem().toString();
+
+        c.phone = ((EditText)findViewById(R.id.edit_phone)).getText().toString();
+
+        c.email = ((EditText)findViewById(R.id.edit_email)).getText().toString();
+
+        c.twitterId = ((EditText)findViewById(R.id.edit_twitter)).getText().toString();
+
+        return c;
+
     }
 }
