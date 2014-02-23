@@ -100,6 +100,16 @@ public class DetailsActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        // Delete the contact
+        Button deleteContactButton = (Button)findViewById(R.id.delete_contact_button);
+        deleteContactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                repo.deleteContact(_contact);
+                finish();
+            }
+        });
     }
 
     private void SetContactFields(Contact contact)

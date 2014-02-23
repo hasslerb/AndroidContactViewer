@@ -116,4 +116,16 @@ public class ContactRepository {
 
     }
 
+     public void deleteContact(Contact contact) {
+         SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+         String where = "id = ?";
+
+         String[] args = { contact.id.toString() };
+
+         db.delete("Contact", where, args);
+
+         db.close();
+    }
+
 }
