@@ -13,10 +13,10 @@ public class ContactRepository {
     private Context context;
     private ContactViewerDbHelper dbHelper;
 
-    private static final String SELECT_CONTACTS = "select Contact.id, Contact.name, Contact.title, Contact.email, Contact.phone, Contact.twitterId " +
+    private static final String SELECT_CONTACTS = "select Contact.id, Contact.name, Contact.title, Contact.phone, Contact.email, Contact.twitterId " +
                                                   "from Contact order by Contact.name asc";
 
-    private static final String SELECT_CONTACT_BY_ID = "select Contact.id, Contact.name, Contact.title, Contact.email, Contact.phone, Contact.twitterId " +
+    private static final String SELECT_CONTACT_BY_ID = "select Contact.id, Contact.name, Contact.title,  Contact.phone, Contact.email, Contact.twitterId " +
                                                   "from Contact where Contact.id = ? order by Contact.name asc";
 
     public ContactRepository(Context c) {
@@ -85,8 +85,8 @@ public class ContactRepository {
         values.put( "name", contact.name );
         values.put( "title", contact.title );
         values.put( "phone", contact.phone );
-        values.put( "twitterId", contact.twitterId );
         values.put( "email", contact.email );
+        values.put( "twitterId", contact.twitterId );
 
         db.insert( "Contact", null, values );
 
@@ -103,8 +103,8 @@ public class ContactRepository {
         values.put( "name", contact.name );
         values.put( "title", contact.title );
         values.put( "phone", contact.phone );
-        values.put( "twitterId", contact.twitterId );
         values.put( "email", contact.email );
+        values.put( "twitterId", contact.twitterId );
 
         String where = "id = ?";
 

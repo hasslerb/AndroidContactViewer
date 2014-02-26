@@ -13,10 +13,10 @@ public class ContactViewerDbHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table Contact (id integer primary key, name text, title text, email text, phone text, twitterId text);");
+        db.execSQL("create table Contact (id integer primary key, name text, title text,  phone text, email text, twitterId text);");
 
-        db.execSQL("insert into Contact (name, title, email, phone) values ('Malcom Reynolds', 'Captain', 'malcom@firefly.com', '555-1234');");
-        db.execSQL("insert into Contact (name, title, email, phone) values ('Zoe Washburn', 'First Mate', 'soe@firefly.com', '555-5678');");
+        db.execSQL("insert into Contact (name, title, phone, email) values ('Malcom Reynolds', 'Captain', '555-1234', 'malcom@firefly.com');");
+        db.execSQL("insert into Contact (name, title, phone, email) values ('Zoe Washburn', 'First Mate', '555-5678', 'soe@firefly.com');");
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists Contact");
