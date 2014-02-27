@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 /**
@@ -58,7 +59,7 @@ public class DetailsActivity extends Activity {
         });
 
         // Bring up the phone client with the contact's phone number after pressing the call button
-        Button callButton = (Button)findViewById(R.id.call_button);
+        ImageButton callButton = (ImageButton)findViewById(R.id.call_button);
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +74,7 @@ public class DetailsActivity extends Activity {
         });
 
         // Bring up the sms client with the contact's phone number after pressing the send text button
-        Button smsButton = (Button)findViewById(R.id.send_text_button);
+        ImageButton smsButton = (ImageButton)findViewById(R.id.send_text_button);
         smsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,7 +88,7 @@ public class DetailsActivity extends Activity {
         });
 
         // Bring up the email client with the contact's email after pressing the send email button
-        Button emailButton = (Button)findViewById(R.id.send_email_button);
+        ImageButton emailButton = (ImageButton)findViewById(R.id.send_email_button);
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
